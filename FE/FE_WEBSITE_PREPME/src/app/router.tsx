@@ -12,6 +12,9 @@ import { ROUTES } from '@constants/routes.constants';
 const LoginPage = lazy(() =>
   import('@pages/auth/LoginPage').then((m) => ({ default: m.LoginPage })),
 );
+const RegisterPage = lazy(() =>
+  import('@pages/auth/RegisterPage').then((m) => ({ default: m.RegisterPage })),
+);
 const DashboardPage = lazy(() =>
   import('@pages/user/DashboardPage').then((m) => ({ default: m.DashboardPage })),
 );
@@ -57,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.LOGIN,
         element: <PublicRoute>{withSuspense(LoginPage)}</PublicRoute>,
+      },
+      {
+        path: ROUTES.REGISTER,
+        element: <PublicRoute>{withSuspense(RegisterPage)}</PublicRoute>,
       },
     ],
   },
